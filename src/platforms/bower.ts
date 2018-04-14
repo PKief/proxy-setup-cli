@@ -18,17 +18,16 @@ export const configureBowerProxy = (enableProxy: boolean, u: UserInformation) =>
             if (enableProxy) {
                 config['proxy'] = proxySettings['proxy'];
                 config['https-proxy'] = proxySettings['https-proxy'];
-                fs.writeFileSync(filePath, JSON.stringify(config, undefined, 2));
-                resolve();
             } else {
                 delete config['proxy'];
                 delete config['https-proxy'];
-                fs.writeFileSync(filePath, JSON.stringify(config, undefined, 2));
-                resolve();
             }
+            fs.writeFileSync(filePath, JSON.stringify(config, undefined, 2));
+            resolve();
         } else {
             if (enableProxy) {
                 fs.writeFileSync(filePath, JSON.stringify(proxySettings, undefined, 2));
+                resolve();
             }
         }
     });
