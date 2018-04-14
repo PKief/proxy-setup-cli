@@ -37,8 +37,8 @@ export const configureMavenProxy = (enableProxy: boolean, u: UserInformation) =>
                 const builder = new xml2js.Builder();
                 const xml = builder.buildObject(result);
                 fs.writeFileSync(filePath, xml);
-                resolve();
             });
+            resolve();
         } else {
             if (enableProxy) {
                 // create complete new config
@@ -50,8 +50,8 @@ export const configureMavenProxy = (enableProxy: boolean, u: UserInformation) =>
                 const builder = new xml2js.Builder();
                 const xml = builder.buildObject(newConfig);
                 fs.writeFileSync(filePath, xml);
-                resolve();
             }
+            resolve();
         }
     });
 };

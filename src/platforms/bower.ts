@@ -27,8 +27,8 @@ export const configureBowerProxy = (enableProxy: boolean, u: UserInformation) =>
         } else {
             if (enableProxy) {
                 fs.writeFileSync(filePath, JSON.stringify(proxySettings, undefined, 2));
-                resolve();
             }
+            resolve();
         }
     });
 };

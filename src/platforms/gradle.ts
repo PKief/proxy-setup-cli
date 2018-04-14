@@ -38,8 +38,8 @@ export const configureGradleProxy = (enableProxy: boolean, u: UserInformation) =
             if (enableProxy) {
                 // create complete new config
                 fs.writeFileSync(filePath, properties.stringify(newSettings));
-                resolve();
             }
+            resolve();
         }
     });
 };
