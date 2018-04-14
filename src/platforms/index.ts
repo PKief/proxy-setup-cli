@@ -3,3 +3,4 @@ export * from './yarn';
 export * from './bower';
 export * from './git';
 export * from './maven';
+export * from './gradle';
