@@ -9,9 +9,11 @@ export const configureGitProxy = (enableProxy: boolean, u: UserInformation) => {
             resolve();
         } else {
             try {
-                execSync(`git config --global --unset http.proxy`);
-                execSync(`git config --global --unset https.proxy`);
-            } catch { } finally {
+                execSync(`git config --global --remove-section http`);
+                execSync(`git config --global --remove-section https`);
+            } catch (e) {
+                console.log(e);
+            } finally {
                 resolve();
             }
         }
