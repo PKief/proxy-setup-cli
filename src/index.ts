@@ -25,6 +25,7 @@ const selectplatforms = () => {
         }
 
         try {
+            console.log('\n');
             await toggleplatformsProxy(platforms, userInformation);
         } catch (err) {
             console.error(err);

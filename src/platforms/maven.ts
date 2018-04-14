@@ -1,4 +1,5 @@
 import * as fs from 'fs';
+import * as _set from 'lodash.set';
 import * as path from 'path';
 import * as xml2js from 'xml2js';
 import { checkIfFileExists, getHomeDirectory } from '../helpers';
@@ -28,9 +29,9 @@ export const configureMavenProxy = (enableProxy: boolean, u: UserInformation) =>
                 if (err) console.log(err);
 
                 if (enableProxy) {
-                    result.settings.proxies[0].proxy = [newProxy];
+                    _set(result, 'settings.proxies', [{ proxy: [newProxy] }]);
                 } else {
-                    result.settings.proxies[0].proxy = [];
+                    _set(result, 'settings.proxies', [{ proxy: [{}] }]);
                 }
 
                 // build new xml object
