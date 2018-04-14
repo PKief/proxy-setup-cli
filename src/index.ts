@@ -1,7 +1,7 @@
 import * as inquirer from 'inquirer';
 import { printInfo } from './helpers';
 import { Platform, UserInformation } from './models';
-import { configureBowerProxy, configureGitProxy, configureNPMProxy, configureYarnProxy } from './platforms';
+import { configureBowerProxy, configureGitProxy, configureNPMProxy, configureYarnProxy, configureMavenProxy } from './platforms';
 
 console.log('\n---------------------------\n- DEVELOPMENT PROXY SETUP -\n---------------------------\n');
 
@@ -58,6 +58,11 @@ const toggleplatformsProxy = async (platforms: Platform[], userInformation: User
 
             case 'Bower':
                 await configureBowerProxy(p.enabled, userInformation);
+                printInfo(p);
+                break;
+
+            case 'Maven':
+                await configureMavenProxy(p.enabled, userInformation);
                 printInfo(p);
                 break;
 
