@@ -5,14 +5,16 @@ import { storeProxyHost } from './store';
 
 class ProxySetup {
     public static async init() {
-        console.log('\n---------------------------\n- DEVELOPMENT PROXY SETUP -\n---------------------------\n');
+        console.log('\n-----------------------\n|   PROXY SETUP CLI   |\n-----------------------\n');
 
         try {
             const { tools, userInformation } = await initUserInteraction();
             console.log('\n');
             await toggletoolsProxy(tools, userInformation);
 
-            storeProxyHost({ name: userInformation.host, port: userInformation.port });
+            if (userInformation) {
+                storeProxyHost({ name: userInformation.host, port: userInformation.port });
+            }
         } catch (err) {
             console.error(err);
         }
