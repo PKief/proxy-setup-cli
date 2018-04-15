@@ -2,3 +2,4 @@ node_modules
 out
 package
 *.log
+proxy-setup-cli.json

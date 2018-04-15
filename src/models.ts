@@ -1,3 +1,6 @@
+/**
+ * Information that is required from the user.
+ */
 export interface UserInformation {
     host: string;
     port: string;
@@ -5,7 +8,15 @@ export interface UserInformation {
     password: string;
 }
 
-export interface Platform {
+/**
+ * Software tool that uses a proxy.
+ */
+export interface Tool {
     name: string;
-    enabled: boolean;
+    enableProxy: boolean;
+}
+
+export interface Host {
+    name: string;
+    port: string;
 }

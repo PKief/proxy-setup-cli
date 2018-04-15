@@ -1,7 +1,7 @@
 {
-  "name": "proxy-setup",
+  "name": "proxy-setup-cli",
   "version": "1.0.0",
-  "description": "",
+  "description": "A command line interface to control the proxy settings of various development tools.",
   "main": "index.js",
   "scripts": {
     "start": "node out/index.js",
@@ -10,11 +10,18 @@
     "package": "pkg -t node8-win out/index.js -o ./package/proxy.exe",
     "lint": "tslint ./src/**/*.ts -t stylish"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "Proxy",
+    "Setup",
+    "Environment",
+    "CLI"
+  ],
+  "author": "Philipp Kief",
+  "license": "MIT",
   "dependencies": {
+    "fuzzy": "^0.1.3",
     "inquirer": "^5.2.0",
+    "inquirer-autocomplete-prompt": "^0.12.2",
     "lodash.set": "^4.3.2",
     "properties": "^1.2.1",
     "xml2js": "^0.4.19"

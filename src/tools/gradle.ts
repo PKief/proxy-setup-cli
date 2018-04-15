@@ -1,8 +1,8 @@
 import * as fs from 'fs';
 import * as path from 'path';
+import * as properties from 'properties';
 import { checkIfFileExists, getHomeDirectory } from '../helpers';
 import { UserInformation } from '../models';
-const properties = require('properties');
 
 export const configureGradleProxy = (enableProxy: boolean, u: UserInformation) => {
     return new Promise(async (resolve, reject) => {
