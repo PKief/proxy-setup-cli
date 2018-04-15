@@ -7,7 +7,7 @@
     "start": "node out/index.js",
     "prestart": "npm run build",
     "build": "tsc",
-    "package": "pkg -t node8-win out/index.js -o ./package/proxy.exe",
+    "package": "pkg -t node8-win out/index.js -o ./package/proxy",
     "lint": "tslint ./src/**/*.ts -t stylish"
   },
   "keywords": [

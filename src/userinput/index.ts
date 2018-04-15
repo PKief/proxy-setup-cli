@@ -16,8 +16,12 @@ export const initUserInteraction = () => {
             inquirer.prompt([{
                 type: 'checkbox',
                 name: 'tools',
+                pageSize: 10,
                 message: 'Mark tool to enable / unmark to disable proxy settings',
-                choices: supportedtools,
+                choices: [
+                    new inquirer.Separator('\nSupported tools:'),
+                    ...supportedtools,
+                ],
             }]).then(async (answers: { tools: string[] }) => {
                 let tools: Tool[] = answers.tools.map(p => ({ name: p, enableProxy: true }));
                 const disabled: Tool[] = supportedtools.filter(p => answers.tools.indexOf(p) === -1).map(p => ({ name: p, enableProxy: false }));
