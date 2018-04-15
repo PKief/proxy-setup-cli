@@ -13,28 +13,28 @@ The usage of this command line interface is very straightforward:
     - If the checkbox of a tool is not marked, the proxy setting will be disabled
 2. Press `<ENTER>`-key to confirm the selection
 3. If some checkboxes are selected, you will be asked to enter your proxy settings
-    - The proxy settings of the tools that are not selected will be removed
+    - If the proxy does not require username and password, let the username empty (just press the `<ENTER>`-key) 
     - If you have not selected any tool, all proxy settings will be removed and you will not be prompted to insert any proxy settings
 4. You will then see a small summary of which proxy settings have been activated or deactivated by the CLI
 5. Press any key to exit the CLI
 
 ## Supported developer tools
-- NPM
-- Yarn
 - Bower
 - Git
 - Gradle
 - Maven
+- NPM
+- Yarn
 
 ## Features
-- Toggle proxy settings for each tool at once
+- Toggle proxy settings for all tools at once
 - Authentication data is only stored in the tool's proxy settings
 - Authentication data is completely removed when the proxy is disabled for a tool
 - Remembers the last used proxy hosts and ports (press `<TAB>` for autocomplete)
 
 ## Installation
 ### Requirements
-- Node.js
+- [Node.js](https://nodejs.org/en/)
 
 ### Install dependencies
 Install all required dependencies with the following command:
@@ -51,7 +51,7 @@ npm start
 ```
 
 ### Generate executable
-It's also possible to generate an executable file of this CLI. For this purpose Zeit's module [pkd](https://github.com/zeit/pkg) is used to build executable files. Simply run this command to create an ".exe"-file if you're working on a Windows machine:
+It's also possible to generate an executable file of this CLI. For this purpose Zeit's module [pkg](https://github.com/zeit/pkg) is used to build executable files. Simply run this command to create an ".exe"-file if you're working on a Windows machine:
 
 ```
 npm run package
@@ -71,4 +71,4 @@ If you're working on another platform you have to adjust the `package`-script:
 "package": "pkg -t node8-macos out/index.js -o ./package/proxy",
 ```
 
-> Read more about the available [targets](https://github.com/zeit/pkg#targets) of the pkd module.
+> Read more about the available [targets](https://github.com/zeit/pkg#targets) of the pkg module.
