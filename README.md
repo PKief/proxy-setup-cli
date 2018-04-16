@@ -27,7 +27,7 @@ The usage of this command line interface is very straightforward:
 - Yarn
 
 ## Features
-- Toggle proxy settings for all tools at once
+- Toggle proxy settings for all supported tools at once
 - Authentication data is only stored in the tool's proxy settings
 - Authentication data is completely removed when the proxy is disabled for a tool
 - Remembers the last used proxy hosts and ports (press `<TAB>` for autocomplete)
