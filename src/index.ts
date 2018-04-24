@@ -1,7 +1,6 @@
+import { storeProxyHost } from './store';
 import { toggletoolsProxy } from './tools';
 import { initUserInteraction } from './userinput';
-import { storeProxyHost } from './store';
-
 
 class ProxySetup {
     public static async init() {
@@ -13,7 +12,7 @@ class ProxySetup {
             await toggletoolsProxy(tools, userInformation);
 
             if (userInformation) {
-                storeProxyHost({ name: userInformation.host, port: userInformation.port });
+                await storeProxyHost({ name: userInformation.host, port: userInformation.port });
             }
         } catch (err) {
             console.error(err);

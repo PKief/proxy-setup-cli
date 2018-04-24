@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import { Host } from '../models';
 import { checkIfFileExists } from '../helpers';
+import { Host } from '../models';
 
 const configFilePath = path.join('proxy-setup-cli.json');
 

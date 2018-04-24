@@ -1,6 +1,6 @@
-import { Tool } from '../models';
 import * as fs from 'fs';
 import * as os from 'os';
+import { Tool } from '../models';
 
 export const getHomeDirectory = () => os.homedir();
 

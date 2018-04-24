@@ -1,11 +1,11 @@
 import { printInfo } from '../helpers';
 import { Tool, UserInformation } from '../models';
-import { configureNPMProxy } from './npm';
-import { configureYarnProxy } from './yarn';
 import { configureBowerProxy } from './bower';
-import { configureMavenProxy } from './maven';
 import { configureGitProxy } from './git';
 import { configureGradleProxy } from './gradle';
+import { configureMavenProxy } from './maven';
+import { configureNPMProxy } from './npm';
+import { configureYarnProxy } from './yarn';
 
 /** Suported tools of this CLI that can be used behind a proxy. */
 export const supportedtools = ['NPM', 'Yarn', 'Bower', 'Git', 'Maven', 'Gradle'].sort();
