@@ -1,6 +1,6 @@
 {
   "name": "proxy-setup-cli",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A command line interface to control the proxy settings of various development tools.",
   "main": "index.js",
   "scripts": {

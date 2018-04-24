@@ -12,12 +12,12 @@ export const configureYarnProxy = (enableProxy: boolean, u: UserInformation) => 
                 proxyURL = `http://${u.host}:${u.port}`;
             }
 
-            execSync(`yarn config set proxy ${proxyURL}`);
-            execSync(`yarn config set https-proxy ${proxyURL}`);
+            execSync(`yarn config --offline set proxy ${proxyURL}`);
+            execSync(`yarn config --offline set https-proxy ${proxyURL}`);
             resolve();
         } else {
-            execSync(`yarn config delete proxy`);
-            execSync(`yarn config delete https-proxy`);
+            execSync(`yarn config --offline delete proxy`);
+            execSync(`yarn config --offline delete https-proxy`);
             resolve();
         }
     });
