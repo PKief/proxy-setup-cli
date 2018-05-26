@@ -15,9 +15,12 @@ export const configureGitProxy = (enableProxy: boolean, u: UserInformation) => {
                 proxyURL = `http://${u.host}:${u.port}`;
             }
 
-            execSync(`git config --global http.proxy ${proxyURL}`);
-            execSync(`git config --global https.proxy ${proxyURL}`);
-            resolve();
+            try {
+                execSync(`git config --global http.proxy ${proxyURL}`);
+                execSync(`git config --global https.proxy ${proxyURL}`);
+            } catch {
+                console.error('Error: Proxy for Git could not be set properly!');
+            }
         } else {
             const options = {
                 path: true,
@@ -27,11 +30,15 @@ export const configureGitProxy = (enableProxy: boolean, u: UserInformation) => {
             const configfileExists = await checkIfFileExists(filePath);
             if (configfileExists === true) {
                 properties.parse(filePath, options, (error, obj) => {
-                    if ('http' in obj) execSync(`git config --global --remove-section http`);
-                    if ('https' in obj) execSync(`git config --global --remove-section https`);
+                    try {
+                        if ('http' in obj) execSync(`git config --global --remove-section http`);
+                        if ('https' in obj) execSync(`git config --global --remove-section https`);
+                    } catch {
+                        console.error('Error: Proxy for Git could not be set properly!');
+                    }
                 });
             }
-            resolve();
         }
+        resolve();
     });
 };

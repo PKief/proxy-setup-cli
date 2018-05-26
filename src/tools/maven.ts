@@ -50,7 +50,11 @@ export const configureMavenProxy = (enableProxy: boolean, u: UserInformation) =>
                 // build new xml object
                 const builder = new xml2js.Builder();
                 const xml = builder.buildObject(newConfig);
-                fs.writeFileSync(filePath, xml);
+                try {
+                    fs.writeFileSync(filePath, xml);
+                } catch {
+                    console.error('Error: Something went wrong while configuring the proxy for Maven! \nPlease check if the \'.m2\'-folder exists in your home-directory!');
+                }
             }
             resolve();
         }

@@ -12,13 +12,20 @@ export const configureNPMProxy = (enableProxy: boolean, u: UserInformation) => {
                 proxyURL = `http://${u.host}:${u.port}`;
             }
 
-            execSync(`npm config set proxy ${proxyURL}`);
-            execSync(`npm config set https-proxy ${proxyURL}`);
-            resolve();
+            try {
+                execSync(`npm config set proxy ${proxyURL}`);
+                execSync(`npm config set https-proxy ${proxyURL}`);
+            } catch {
+                console.error('Error: Proxy for npm could not be set properly!');
+            }
         } else {
-            execSync(`npm config rm proxy`);
-            execSync(`npm config rm https-proxy`);
-            resolve();
+            try {
+                execSync(`npm config rm proxy`);
+                execSync(`npm config rm https-proxy`);
+            } catch {
+                console.error('Error: Proxy for npm could not be set properly!');
+            }
         }
+        resolve();
     });
 };

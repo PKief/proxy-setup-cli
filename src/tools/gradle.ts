@@ -37,7 +37,11 @@ export const configureGradleProxy = (enableProxy: boolean, u: UserInformation) =
         } else {
             if (enableProxy) {
                 // create complete new config
-                fs.writeFileSync(filePath, properties.stringify(newSettings));
+                try {
+                    fs.writeFileSync(filePath, properties.stringify(newSettings));
+                } catch {
+                    console.error('Error: Something went wrong while configuring the proxy for Gradle! \nPlease check if the \'.gradle\'-folder exists in your home-directory!');
+                }
             }
             resolve();
         }

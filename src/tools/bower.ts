@@ -32,7 +32,11 @@ export const configureBowerProxy = (enableProxy: boolean, u: UserInformation) =>
             resolve();
         } else {
             if (enableProxy) {
-                fs.writeFileSync(filePath, JSON.stringify(proxySettings, undefined, 2));
+                try {
+                    fs.writeFileSync(filePath, JSON.stringify(proxySettings, undefined, 2));
+                } catch {
+                    console.error('Error: Something went wrong while configuring the proxy for Bower! \nPlease check if the \'.bowerrc\'-config file exists in your home-directory!');
+                }
             }
             resolve();
         }
